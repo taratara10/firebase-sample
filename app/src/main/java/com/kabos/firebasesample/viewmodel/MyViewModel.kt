@@ -13,6 +13,8 @@ class MyViewModel @Inject constructor(private val repository: MyRepository): Vie
 
     val memoList = MutableLiveData<List<MemoItem>>()
 
+
+
     val callback = object : Callback{
         override fun onSuccess(memos: List<MemoItem>) {
            memoList.postValue(memos)
@@ -23,8 +25,8 @@ class MyViewModel @Inject constructor(private val repository: MyRepository): Vie
         repository.addMemo(memoItem)
     }
 
-    fun getMemo() {
-        repository.getMemo(callback)
+    fun listenToCollection() {
+        repository.listenToCollection(callback)
     }
 }
 

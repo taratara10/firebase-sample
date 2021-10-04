@@ -42,9 +42,10 @@ class MainFragment: Fragment() {
             btnAddMemo.setOnClickListener {
                 findNavController().navigate(R.id.action_nav_main_to_nav_dialog)
             }
-            btnGetMemo.setOnClickListener {
-                viewModel.getMemo()
-            }
+
+
+            //購読開始
+            viewModel.listenToCollection()
 
             viewModel.memoList.observe(viewLifecycleOwner,{list ->
                 memoAdapter.submitList(list)

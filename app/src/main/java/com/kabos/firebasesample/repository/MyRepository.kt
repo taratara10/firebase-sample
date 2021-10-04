@@ -52,4 +52,24 @@ class MyRepository() {
                 Log.d(TAG, "Error getting documents: ", exception)
             }
     }
+
+    fun listenToCollection(callback: Callback){
+        fireStore.collection("room1")
+        .addSnapshotListener { value, e ->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
+            }
+
+            val memos = mutableListOf<MemoItem>()
+            for (document in value!!) {
+                val memo = document.toObject(MemoItem::class.java)
+                memos.add(memo)
+            }
+            Log.d(TAG, "listener is called")
+            callback.onSuccess(memos)
+        }
+    }
+
+
 }
