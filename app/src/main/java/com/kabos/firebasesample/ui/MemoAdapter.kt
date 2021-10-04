@@ -24,7 +24,7 @@ class MemoAdapter(): androidx.recyclerview.widget.ListAdapter<MemoItem, MemoAdap
         fun bind(item: MemoItem){
             binding.apply {
                 tvAdapterTitle.text = item.title
-                tvAdapterCreatedAt.text = item.title
+                tvAdapterCreatedAt.text = item.userId
             }
         }
     }

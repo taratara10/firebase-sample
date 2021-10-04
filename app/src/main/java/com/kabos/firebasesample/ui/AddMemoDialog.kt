@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.kabos.firebasesample.databinding.DialogAddMemoBinding
 import com.kabos.firebasesample.model.MemoItem
 import com.kabos.firebasesample.viewmodel.MyViewModel
@@ -20,6 +21,7 @@ class AddMemoDialog: DialogFragment() {
         binding = DialogAddMemoBinding.inflate(LayoutInflater.from(context))
         return AlertDialog.Builder(requireActivity())
             .setView(binding.root)
+            .setTitle("Create Memo")
             .create()
     }
 
@@ -31,6 +33,11 @@ class AddMemoDialog: DialogFragment() {
                 val memo = MemoItem(userId = "shuhei",
                     title = etDialogTitle.text.toString())
                 viewModel.addMemo(memo)
+                findNavController().popBackStack()
+            }
+
+            btnDialogCancel.setOnClickListener {
+                findNavController().popBackStack()
             }
         }
     }

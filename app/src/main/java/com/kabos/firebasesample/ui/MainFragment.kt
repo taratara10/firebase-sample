@@ -1,12 +1,14 @@
 package com.kabos.firebasesample.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kabos.firebasesample.MemoAdapter
 import com.kabos.firebasesample.R
@@ -34,13 +36,19 @@ class MainFragment: Fragment() {
             rvMain.apply {
                 layoutManager = LinearLayoutManager(activity)
                 adapter = memoAdapter
+                addItemDecoration(DividerItemDecoration(activity,LinearLayoutManager(activity).orientation))
             }
 
             btnAddMemo.setOnClickListener {
-//                findNavController().navigate(R.id.action_nav_main_to_nav_dialog)
-                val memo = MemoItem(userId = "shuhei", title = "sample1")
-                viewModel.addMemo(memo)
+                findNavController().navigate(R.id.action_nav_main_to_nav_dialog)
             }
+            btnGetMemo.setOnClickListener {
+                viewModel.getMemo()
+            }
+
+            viewModel.memoList.observe(viewLifecycleOwner,{list ->
+                memoAdapter.submitList(list)
+            })
         }
 
 
