@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "674450109575",
+    "project_id": "myfirstapp-ae903",
+    "storage_bucket": "myfirstapp-ae903.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674450109575:android:7d3d1b215b7597db5e3422",
+        "android_client_info": {
+          "package_name": "com.kabos.firebasesample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674450109575-k0tbqsel9p4qlftuvhjisa8aag6nbmdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDShzXEqEJn4vxdK4jJKwBavlLOZkGjJ4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674450109575-k0tbqsel9p4qlftuvhjisa8aag6nbmdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
