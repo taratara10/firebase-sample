@@ -2,9 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services' //firebase
 }
-
 
 android {
     compileSdk 30
@@ -17,6 +17,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -67,7 +73,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
+    implementation "com.google.dagger:hilt-android:2.37"
     kapt "com.google.dagger:hilt-android-compiler:2.37"
 
     //Glide
@@ -89,7 +95,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     // Google認証に必要
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
-
+    // firebase UI (login)
     implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
-
+    // firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }

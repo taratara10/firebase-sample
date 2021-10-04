@@ -1,4 +1,4 @@
-package com.kabos.firebasesample
+package com.kabos.firebasesample.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +7,14 @@ import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
+import com.kabos.firebasesample.R
+import dagger.hilt.android.AndroidEntryPoint
 
 /***
  * 参考URL: Firebase UIでログイン機能を簡単に Android アプリに追加する
  * https://firebase.google.com/docs/auth/android/firebaseui?hl=ja
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

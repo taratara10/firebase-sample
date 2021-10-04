@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_main"
-        android:name="com.kabos.firebasesample.MainFragment"
+        android:name="com.kabos.firebasesample.ui.MainFragment"
         android:label="main"
         tools:layout="@layout/fragment_main">
         <action
@@ -17,6 +17,6 @@
 
     <dialog
         android:id="@+id/nav_dialog"
-        android:name="com.kabos.firebasesample.AddMemoDialog"
+        android:name="com.kabos.firebasesample.ui.AddMemoDialog"
         tools:layout="@layout/dialog_add_memo"/>
 </navigation>
