@@ -6,10 +6,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.firestoreSettings
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.kabos.firebasesample.model.MemoItem
+import com.kabos.firebasesample.model.PushNotification
 import com.kabos.firebasesample.viewmodel.Callback
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MyRepository() {
+class MyRepository@Inject constructor(private val service: NotificationAPI) {
     private lateinit var fireStore: FirebaseFirestore
     init {
         setup()
@@ -71,5 +77,17 @@ class MyRepository() {
         }
     }
 
+    fun sendNotification(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val response = service.postNotification(notification)
+            if(response.isSuccessful) {
+                Log.d(TAG, "Response: ${response.body().toString()}")
+            } else {
+                Log.e(TAG, response.errorBody().toString())
+            }
+        } catch(e: Exception) {
+            Log.e(TAG, e.toString())
+        }
+    }
 
 }

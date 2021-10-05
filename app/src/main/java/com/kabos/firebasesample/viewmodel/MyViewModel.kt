@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kabos.firebasesample.model.MemoItem
+import com.kabos.firebasesample.model.PushNotification
 import com.kabos.firebasesample.repository.MyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -27,6 +28,10 @@ class MyViewModel @Inject constructor(private val repository: MyRepository): Vie
 
     fun listenToCollection() {
         repository.listenToCollection(callback)
+    }
+
+    fun sendNotification(notification: PushNotification){
+        repository.sendNotification(notification)
     }
 }
 
