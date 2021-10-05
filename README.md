@@ -1,2 +1,2 @@
 # firebase-sample
-<image width="300" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/704986/1c3ffcdc-9cc2-e7b6-ed86-2896b362bf69.png"> 
+<image width="300" src="https://user-images.githubusercontent.com/64339483/135815872-d3fcec30-96f5-4493-935c-c344348a9716.png"> 
